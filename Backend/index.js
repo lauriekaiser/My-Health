@@ -1,13 +1,20 @@
 const express = require("express");
 
-const{connectToDatabase, disconnectFromDatabase} = require("./db")
+const doctorRouter = require("./doctors/doctor.router");
+
+const{connectToDatabase, disconnectFromDatabase} = require("./db");
 
 const app = express();
 const port = 3000;
 
+app.use(express.json());                                   //middleware (data available on req.body in router.js)
+
+
 app.get("/", (req, res) =>{
     res.send("Hello World!");
 });
+
+app.use("/doctors", doctorRouter);
 
 
 connectToDatabase()                         //connect to database then do whatever else we want to do
