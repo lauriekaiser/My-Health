@@ -1,0 +1,78 @@
+
+
+h1 {
+    text-align: center;
+}
+
+
+.dropdown {
+    position: relative;
+    margin: 10px;
+    margin-bottom: 30px;
+    top: 30%;
+    left: 200%;
+    display: inline-block;
+}
+
+.dropbtn {
+    background-color:grey;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: lightgrey;
+    width: 100%;
+    overflow: auto;
+  }
+
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.card {
+  text-align: center;
+  height: 500px;
+  width: 600px;
+  margin-top: 100px;
+  margin-left: 50px;
+}
+
+#welcome {
+  width: 200px;
+  height: 300px;
+}
+
+#welcomeForm {
+  width: 400px;
+  height: 300px;
+}
+
+.form-text {
+  margin: 15px;
+}
+
+#firstDrInfo {
+  text-align: center;
+  border: solid red;
+  width: fit-content;
+  margin-top: 100px;
+  cursor: pointer;
+}
+
+#firstDr {
+  height: 200px;
+  width: 250px;
+  
+}

@@ -3,3 +3,9 @@ h1 {
     text-align: center;
     background-color: rgb(248, 141, 141);
 }
+
+.container {
+    margin: auto;
+    width: 100%;
+    padding: 10px;
+}

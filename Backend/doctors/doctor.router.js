@@ -37,6 +37,7 @@ router.get("/:doctorId", async (req, res) => {
 
 router.post("/", async (req, res) => {
     try{
+        console.log(req);
     const newDoctor = await createDoctor(req.body);
     res.status(200);                                                        //200 indicates success
     res.send(newDoctor);

@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 
 const doctorRouter = require("./doctors/doctor.router");
 
@@ -7,6 +8,7 @@ const{connectToDatabase, disconnectFromDatabase} = require("./db");
 const app = express();
 const port = 3000;
 
+app.use(cors());
 app.use(express.json());                                   //middleware (data available on req.body in router.js)
 
 

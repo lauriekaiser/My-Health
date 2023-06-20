@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
@@ -7,4 +9,10 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
+  constructor(private http: HttpClient, private router:Router) {}
+
+
+onClickButton(): void {
+  this.router.navigate(['/create-new']);
+}
 }
