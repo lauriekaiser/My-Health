@@ -36,6 +36,18 @@ const getDoctorById = async (doctorId) => {
     }
 }
 
+//read specific doctor by email
+const getDrbyEmail = async (email) => {
+    try{
+        const doctor = await Doctor.findOne({email: email});
+        return doctor;
+    }catch(error){
+        console.error("Error reading doctor by email");
+        throw error;
+    }
+};
+
+
 //update a doctor
 const updateDoctor = async (doctorId, doctorData) => {
     try{
@@ -66,4 +78,5 @@ module.exports = {
     getDoctorById,
     updateDoctor,
     deleteDoctor,
+    getDrbyEmail
 }

@@ -1,8 +1,41 @@
 const express = require("express");
 
-const {createDoctor, getDoctors, getDoctorById, updateDoctor, deleteDoctor} = require("./doctor.controller");
+const {createDoctor, getDoctors, getDoctorById, updateDoctor, deleteDoctor, getDrbyEmail} = require("./doctor.controller");
 
 const router = express.Router();
+
+router.post("/login", async (req, res) => {                        //does login info match in the database
+    try{
+        const {email, password} = req.body;
+        if(!email || !password) {
+            res.status(400);                                       //400 something wrong with request, 500 request is fine but something is wrong with the fulfillment of request
+            res.send({
+                error: true,
+                msg: 'email or password missing',
+        });
+        }else{
+            const doctor = await getDrbyEmail(email);
+            if(doctor && doctor.password && doctor.password === password){
+                res.status(200);
+                res.send({
+                    login: true,
+                });
+            }else{
+                res.status(401);                                                //401 unauthorized access
+                res.send({
+                    login: false,
+            })
+        }
+        }
+    }catch(error){
+        console.error("Error logging in", error);
+        res.status(500);
+        res.send({
+            error: true,
+            msg: JSON.stringify(error),
+        });   
+    }
+});
 
 router.get("/", async (req,res) => {
     try{
