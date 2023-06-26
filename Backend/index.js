@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 
 const doctorRouter = require("./doctors/doctor.router");
+const patientRouter = require("./patients/patient.router");
 
 const{connectToDatabase, disconnectFromDatabase} = require("./db");
 
@@ -17,6 +18,7 @@ app.get("/", (req, res) =>{
 });
 
 app.use("/doctors", doctorRouter);
+app.use("/patients", patientRouter);
 
 
 connectToDatabase()                         //connect to database then do whatever else we want to do

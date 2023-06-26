@@ -7,6 +7,10 @@ interface Doctor {
   email: string;
   password: string;
 }
+interface Patient {
+  email: string;
+  password: string;
+}
 
 
 @Component({
@@ -17,6 +21,7 @@ interface Doctor {
 export class HomeComponent implements OnInit {
   doctorLogInForm!: FormGroup;
   error: string = '';
+  patientLogInForm!: FormGroup;
 
   constructor(private http: HttpClient, private router:Router) {}
 
@@ -25,16 +30,23 @@ export class HomeComponent implements OnInit {
       email: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required),
     });
+
+    this.patientLogInForm = new FormGroup({
+      email: new FormControl('', Validators.required),
+      password: new FormControl('', Validators.required),
+    });
   }
 
   get email(){
-    return this.doctorLogInForm.get('email')?.getRawValue();
+    return this.doctorLogInForm.get('email')?.getRawValue() ||  this.patientLogInForm.get('email')?.getRawValue();
   }
   get password(){
-    return this.doctorLogInForm.get('password')?.getRawValue();
+    return this.doctorLogInForm.get('password')?.getRawValue() || this.patientLogInForm.get('password')?.getRawValue();
   }
 
-  onSubmit() {
+
+
+  onSubmitForm1() {
     console.log('Form submitted');
     this.http
     .post('http://localhost:3000/doctors/login', {
@@ -54,7 +66,32 @@ export class HomeComponent implements OnInit {
   }
 
 
-onClickButton(): void {
+onClickButton1(): void {
+  this.router.navigate(['/create-new']);
+}
+
+
+
+onSubmitForm2() {
+  console.log('Patient form submitted');
+  this.http
+  .post('http://localhost:3000/patients', {
+  patientEmail: this.email,
+  patientPassword: this.password,
+  })
+  .subscribe((response: any) => {
+    console.log(response);
+    const loggedIn = response?.login;
+    if (loggedIn) {
+      localStorage.setItem('loggedInPatient', this.email || '');
+      this.router.navigateByUrl('/doctor-landing');
+    } else{
+      this.error = 'Invalid username or password';
+    }
+  });
+}
+
+onClickButton2(): void {
   this.router.navigate(['/create-new']);
 }
 }
