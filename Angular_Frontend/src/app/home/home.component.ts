@@ -23,6 +23,7 @@ export class HomeComponent implements OnInit {
   error: string = '';
   patientLogInForm!: FormGroup;
 
+
   constructor(private http: HttpClient, private router:Router) {}
 
   ngOnInit() {
@@ -76,8 +77,8 @@ onSubmitForm2() {
   console.log('Patient form submitted');
   this.http
   .post('http://localhost:3000/patients', {
-  patientEmail: this.email,
-  patientPassword: this.password,
+  email: this.email,
+  password: this.password,
   })
   .subscribe((response: any) => {
     console.log(response);
@@ -92,6 +93,6 @@ onSubmitForm2() {
 }
 
 onClickButton2(): void {
-  this.router.navigate(['/create-new']);
+  this.router.navigate(['/newpatient']);
 }
 }

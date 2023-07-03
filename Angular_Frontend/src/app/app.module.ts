@@ -10,6 +10,7 @@ import { DoctorImagesComponent } from './doctor-images/doctor-images.component';
 import { CreateNewComponent } from './create-new/create-new.component';
 import { NavComponent } from './nav/nav.component';
 import { DoctorLandingComponent } from './doctor-landing/doctor-landing.component';
+import { NewpatientComponent } from './newpatient/newpatient.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { DoctorLandingComponent } from './doctor-landing/doctor-landing.componen
     CreateNewComponent,
     NavComponent,
     DoctorLandingComponent,
+    NewpatientComponent,
   ],
   imports: [
     BrowserModule,

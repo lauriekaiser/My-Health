@@ -11,7 +11,7 @@
         class="form-control"
         id="username" 
         name="username" 
-        [(ngModel)]="doctor.username"  
+        [(ngModel)]="patient.username"  
         required
         />
     </div>
@@ -21,15 +21,16 @@
         class="form-control"
         id="password" 
         name="password" 
-        [(ngModel)]="doctor.password"  
+        [(ngModel)]="patient.password"  
         required
         />
     </div>
     <div class="mb-3">
         <label for="email" class="form-label">Email address</label>
         <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com"
-        [(ngModel)]="doctor.email"
+        [(ngModel)]="patient.email"
         />
       </div>
       <button type="submit" class="btn btn-primary">Create</button>
 </form>
+
