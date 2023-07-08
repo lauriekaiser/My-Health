@@ -76,7 +76,7 @@ onClickButton1(): void {
 onSubmitForm2() {
   console.log('Patient form submitted');
   this.http
-  .post('http://localhost:3000/patients', {
+  .post('http://localhost:3000/patients/login', {
   email: this.email,
   password: this.password,
   })

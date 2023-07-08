@@ -18,7 +18,7 @@ export class NewpatientComponent {
   
   constructor(private http: HttpClient, private router:Router) {}
   
-  createNew(){
+  createNewPatient(){
     this.http.post('http://localhost:3000/patients', this.patient).subscribe(
       (response) => {
         console.log('Patient created successfully', response);

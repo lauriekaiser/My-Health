@@ -4,7 +4,7 @@ const {createPatient, getPatients, getPatientById, updatePatient, deletePatient,
 
 const router = express.Router();
 
-router.post("/", async (req, res) => {                        //does login info match in the database
+router.post("/login", async (req, res) => {                        //does login info match in the database
     try{
         const {email, password} = req.body;
         if(!email || !password) {
