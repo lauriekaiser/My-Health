@@ -1,10 +1,14 @@
 const express = require("express");
 const cors = require("cors");
+const dotenv = require("dotenv");
 
 const doctorRouter = require("./doctors/doctor.router");
 const patientRouter = require("./patients/patient.router");
 
 const{connectToDatabase, disconnectFromDatabase} = require("./db");
+const { configDotenv } = require("dotenv");
+
+dotenv.config();
 
 const app = express();
 const port = 3000;
