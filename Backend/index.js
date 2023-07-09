@@ -6,7 +6,6 @@ const doctorRouter = require("./doctors/doctor.router");
 const patientRouter = require("./patients/patient.router");
 
 const{connectToDatabase, disconnectFromDatabase} = require("./db");
-const { configDotenv } = require("dotenv");
 
 dotenv.config();
 
