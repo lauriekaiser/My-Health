@@ -1,6 +1,9 @@
 //mongodb+srv://kaiserlaurie:<password>@cluster0.c6bouj1.mongodb.net/?retryWrites=true&w=majority
 
 const mongoose = require("mongoose");
+const path = require("path");
+
+require("dotenv").config();
 
 const username = process.env.MONGO_USER;
 const password = process.env.MONGO_PASS;
